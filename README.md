@@ -1,2 +1,2 @@
 # Syntheion-dynamics.github.io
-Art and technology vebsite for inventor Jaenomah.
+Art and technology website for inventor Jaenomah.
