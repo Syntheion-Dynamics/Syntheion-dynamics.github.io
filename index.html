@@ -110,23 +110,6 @@ document.querySelectorAll('.gallery img').forEach(img => {
     <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
 </nav>
 
-<div class="gallery">
-    <img src="img1.png" class="cyberpunk">
-    <img src="img2.png" class="odyssey">
-    ...
-</div>
-
-<script>
-function filterGallery(game) {
-    document.querySelectorAll('.gallery img').forEach(img => {
-        if (game === 'all' || img.classList.contains(game)) {
-            img.style.display = 'block';
-        } else {
-            img.style.display = 'none';
-        }
-    });
-}
-</script>
 
     
 typeWriter();
