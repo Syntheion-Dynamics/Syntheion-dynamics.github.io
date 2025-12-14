@@ -59,5 +59,21 @@
             <!-- ... další obrázky ... -->
         </div>
     </div>
+<script>
+let text = "> LOADING ARCHIVES...";
+let i = 0;
+let element = document.querySelector('h2');
+
+function typeWriter() {
+    if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+    }
+}
+
+typeWriter();
+</script>
+    
 </body>
 </html>
