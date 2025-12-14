@@ -59,6 +59,8 @@
             <!-- ... další obrázky ... -->
         </div>
     </div>
+
+    
 <script>
 let text = "> LOADING ARCHIVES...";
 let i = 0;
@@ -72,6 +74,61 @@ function typeWriter() {
     }
 }
 
+<script>
+document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', function() {
+        let fullscreen = document.createElement('div');
+        fullscreen.style.cssText = `
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        `;
+        
+        let bigImg = document.createElement('img');
+        bigImg.src = this.src;
+        bigImg.style.maxWidth = '90%';
+        bigImg.style.maxHeight = '90%';
+        
+        fullscreen.appendChild(bigImg);
+        document.body.appendChild(fullscreen);
+        
+        fullscreen.addEventListener('click', () => {
+            fullscreen.remove();
+        });
+    });
+});
+</script>
+
+<nav>
+    <button onclick="filterGallery('all')">ALL</button>
+    <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
+    <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
+</nav>
+
+<div class="gallery">
+    <img src="img1.png" class="cyberpunk">
+    <img src="img2.png" class="odyssey">
+    ...
+</div>
+
+<script>
+function filterGallery(game) {
+    document.querySelectorAll('.gallery img').forEach(img => {
+        if (game === 'all' || img.classList.contains(game)) {
+            img.style.display = 'block';
+        } else {
+            img.style.display = 'none';
+        }
+    });
+}
+</script>
+
+    
 typeWriter();
 </script>
     
