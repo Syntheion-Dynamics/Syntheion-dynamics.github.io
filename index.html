@@ -3,216 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syntheion Dynamics - Virtual Photography</title>
+    <title>Syntheion Dynamics</title>
     <style>
+        /* ZÁKLADNÍ STYLING */
         body {
             background: #000;
-            color: #0f0;
+            color: #00ff00;
             font-family: 'Courier New', monospace;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* LOGO STYLING */
+        /* LOGO */
         .logo {
-            display: block;
-            width: 200px;
+            width: 300px;
             height: auto;
-            margin: 0 auto 30px auto;
-            filter: drop-shadow(0 0 15px #0f0);
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px #00ff00);
         }
         
-        /* NADPIS */
+        /* HLAVNÍ NADPIS */
         h1 {
+            font-size: 3em;
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #0f0;
+            margin: 20px 0;
+            text-shadow: 0 0 20px #00ff00;
         }
         
-        h2 {
-            text-align: center;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+        /* PODNADPIS */
+        .prompt {
+            font-size: 1.5em;
+            margin: 40px 0 20px 0;
         }
         
-        /* NAVIGACE (filter buttons) */
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
+        /* MENU CONTAINER */
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
         
-        nav button {
-            background: transparent;
-            color: #0f0;
-            border: 2px solid #0f0;
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 1em;
+        /* KAŽDÁ POLOŽKA MENU */
+        .menu li {
+            font-size: 1.3em;
+            margin: 15px 0;
+            padding: 15px 30px;
+            border: 2px solid #00ff00;
             cursor: pointer;
             transition: all 0.3s;
-        }
-        
-        nav button:hover {
-            background: #0f0;
-            color: #000;
-            box-shadow: 0 0 15px #0f0;
-        }
-        
-        /* BACK TO MENU LINK */
-        .back-link {
             text-align: center;
-            margin-bottom: 20px;
+            min-width: 400px;
         }
         
-        .back-link a {
-            color: #0f0;
+        /* HOVER EFEKT */
+        .menu li:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 20px #00ff00;
+            transform: translateX(10px);
+        }
+        
+        /* LINK STYLING */
+        .menu a {
+            color: inherit;
             text-decoration: none;
-            border: 2px solid #0f0;
-            padding: 10px 20px;
-            display: inline-block;
-            transition: all 0.3s;
+            display: block;
         }
         
-        .back-link a:hover {
-            background: #0f0;
-            color: #000;
+        /* BLIKAJÍCÍ CURSOR */
+        .cursor {
+            animation: blink 1s infinite;
         }
         
-        /* GALLERY */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .gallery img {
-            width: 100%;
-            cursor: pointer;
-            border: 2px solid #0f0;
-            transition: transform 0.3s;
-        }
-        
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #0f0;
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        
-        <!-- LOGO (uploadni jako images/logo.png) -->
-        <img src="images/logo.png" alt="Syntheion Dynamics" class="logo">
-        
-        <!-- NADPIS -->
-        <h1>█ SYNTHEION DYNAMICS █</h1>
-        
-        <!-- TYPING EFFECT TEXT (prázdný, script ho vyplní) -->
-        <h2 id="typing-text"></h2>
-        
-        <!-- BACK TO MENU LINK -->
-        <div class="back-link">
-            <a href="index.html">← BACK TO MAIN MENU</a>
-        </div>
-        
-        <!-- FILTER BUTTONS -->
-        <nav>
-            <button onclick="filterGallery('all')">ALL</button>
-            <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
-            <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
-        </nav>
-        
-        <!-- GALLERY -->
-        <div class="gallery">
-            <img src="images/photomode_22112025_230404.png" alt="Cyberpunk 2077" class="cyberpunk">
-            <img src="images/photomode_27112025_211937.png" alt="Cyberpunk 2077" class="cyberpunk">
-            <img src="images/photomode_08122025_160928.png" alt="Cyberpunk 2077" class="cyberpunk">
-            <img src="images/Assassin's Creed® Odyssey-2025_10_19-15-07-38.png" alt="AC Odyssey" class="odyssey">
-            <img src="images/Assassin's Creed® Odyssey-2025_10_06-17-07-20.png" alt="AC Odyssey" class="odyssey">
-        </div>
-    </div>
-
-    <!-- SCRIPTY NA KONEC -->
     
-    <!-- 1. FULLSCREEN CLICK (jenom jeden!) -->
-    <script>
-    document.querySelectorAll('.gallery img').forEach(img => {
-        img.onclick = function() {
-            // Vytvoř overlay
-            let overlay = document.createElement('div');
-            overlay.style.cssText = `
-                position: fixed;
-                top: 0; left: 0;
-                width: 100vw; height: 100vh;
-                background: rgba(0, 0, 0, 0.95);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 999;
-                cursor: pointer;
-            `;
-            
-            // Vytvoř velký obrázek
-            let bigImage = document.createElement('img');
-            bigImage.src = this.src;
-            bigImage.style.maxWidth = '95%';
-            bigImage.style.maxHeight = '95%';
-            bigImage.style.border = '2px solid #00ff00';
-            
-            // Přidej obrázek do overlay
-            overlay.appendChild(bigImage);
-            document.body.appendChild(overlay);
-            
-            // Klik = zavřít
-            overlay.onclick = () => overlay.remove();
-        };
-    });
-    </script>
+    <!-- LOGO -->
+    <img src="images/logo.png" alt="Syntheion Dynamics Logo" class="logo">
     
-    <!-- 2. TYPING EFFECT -->
-    <script>
-    let text = "> VIRTUAL PHOTOGRAPHY ARCHIVES";
-    let i = 0;
-    let element = document.getElementById('typing-text');
+    <!-- HLAVNÍ NADPIS -->
+    <h1>█ SYNTHEION DYNAMICS █</h1>
     
-    function typeWriter() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    }
+    <!-- PROMPT -->
+    <div class="prompt">&gt; SELECT CATEGORY:</div>
     
-    typeWriter();
-    </script>
+    <!-- MENU -->
+    <ul class="menu">
+        <li><a href="photography.html">[1] VIRTUAL PHOTOGRAPHY</a></li>
+        <li><a href="science.html">[2] SCIENCE & TECHNOLOGY</a></li>
+        <li><a href="art.html">[3] ART & DESIGN</a></li>
+        <li><a href="projects.html">[4] PROJECTS</a></li>
+        <li><a href="about.html">[5] ABOUT</a></li>
+    </ul>
     
-    <!-- 3. FILTER GALLERY FUNCTION -->
-    <script>
-    function filterGallery(category) {
-        // Najdi všechny obrázky
-        let images = document.querySelectorAll('.gallery img');
-        
-        images.forEach(img => {
-            if (category === 'all') {
-                // Zobraz všechny
-                img.style.display = 'block';
-            } else if (img.classList.contains(category)) {
-                // Zobraz jenom ty s danou class
-                img.style.display = 'block';
-            } else {
-                // Skryj ostatní
-                img.style.display = 'none';
-            }
-        });
-    }
-    </script>
+    <!-- BLIKAJÍCÍ CURSOR -->
+    <div class="prompt">&gt; <span class="cursor">_</span></div>
     
 </body>
 </html>
