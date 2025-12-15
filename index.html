@@ -2,7 +2,76 @@
 <html lang="cs">
 <head>
 
-        <script>
+     
+
+<nav>
+    <button onclick="filterGallery('all')">ALL</button>
+    <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
+    <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
+</nav>    
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syntheion Dynamics - Virtual Photography</title>
+    <style>
+    
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            cursor: pointer;
+            border: 2px solid #0f0;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>█ SYNTHEION DYNAMICS █</h1>
+        <h2>> VIRTUAL PHOTOGRAPHY ARCHIVES</h2>
+        
+        <div class="gallery">
+            <!-- Sem dáš svoje screenshoty -->
+            <img src="images/photomode_22112025_230404.png" alt="Cyberpunk 2077">
+            <img src="images/photomode_27112025_211937.png" alt="Cyberpunk 2077">
+            <img src="images/photomode_08122025_160928.png" alt="Cyberpunk 2077">
+            <img src="images/Assassin’s Creed® Odyssey-2025_10_19-15-07-38.png" alt="AC Odyssey">
+            <img src="images/Assassin’s Creed® Odyssey-2025_10_06-17-07-20.png" alt="AC Odyssey">
+            <!-- ... další obrázky ... -->
+        </div>
+    </div>
+
+       <script>
 // 1. NAJDI všechny obrázky v galerii
 document.querySelectorAll('.gallery img').forEach(img => {
     
@@ -96,75 +165,6 @@ function typeWriter() {
 }
 typeWriter();
 </script>
-
-<nav>
-    <button onclick="filterGallery('all')">ALL</button>
-    <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
-    <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
-</nav>    
-    
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syntheion Dynamics - Virtual Photography</title>
-    <style>
-    
-        body {
-            background: #000;
-            color: #0f0;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            text-shadow: 0 0 10px #0f0;
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .gallery img {
-            width: 100%;
-            cursor: pointer;
-            border: 2px solid #0f0;
-            transition: transform 0.3s;
-        }
-        
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #0f0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>█ SYNTHEION DYNAMICS █</h1>
-        <h2>> VIRTUAL PHOTOGRAPHY ARCHIVES</h2>
-        
-        <div class="gallery">
-            <!-- Sem dáš svoje screenshoty -->
-            <img src="images/photomode_22112025_230404.png" alt="Cyberpunk 2077">
-            <img src="images/photomode_27112025_211937.png" alt="Cyberpunk 2077">
-            <img src="images/photomode_08122025_160928.png" alt="Cyberpunk 2077">
-            <img src="images/Assassin’s Creed® Odyssey-2025_10_19-15-07-38.png" alt="AC Odyssey">
-            <img src="images/Assassin’s Creed® Odyssey-2025_10_06-17-07-20.png" alt="AC Odyssey">
-            <!-- ... další obrázky ... -->
-        </div>
-    </div>
-
-    
 
     
 </body>
