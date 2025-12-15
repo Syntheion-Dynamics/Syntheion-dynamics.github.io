@@ -1,21 +1,10 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-
-     
-
-<nav>
-    <button onclick="filterGallery('all')">ALL</button>
-    <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
-    <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
-</nav>    
-    
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syntheion Dynamics - Virtual Photography</title>
     <style>
-    
         body {
             background: #000;
             color: #0f0;
@@ -29,13 +18,74 @@
             margin: 0 auto;
         }
         
+        /* LOGO STYLING */
+        .logo {
+            display: block;
+            width: 200px;
+            height: auto;
+            margin: 0 auto 30px auto;
+            filter: drop-shadow(0 0 15px #0f0);
+        }
+        
+        /* NADPIS */
         h1 {
             text-align: center;
             font-size: 2em;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             text-shadow: 0 0 10px #0f0;
         }
         
+        h2 {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        /* NAVIGACE (filter buttons) */
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        nav button {
+            background: transparent;
+            color: #0f0;
+            border: 2px solid #0f0;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        nav button:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 15px #0f0;
+        }
+        
+        /* BACK TO MENU LINK */
+        .back-link {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-link a {
+            color: #0f0;
+            text-decoration: none;
+            border: 2px solid #0f0;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .back-link a:hover {
+            background: #0f0;
+            color: #000;
+        }
+        
+        /* GALLERY */
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -57,115 +107,112 @@
 </head>
 <body>
     <div class="container">
-        <h1>█ SYNTHEION DYNAMICS █</h1>
-        <h2>> VIRTUAL PHOTOGRAPHY ARCHIVES</h2>
         
+        <!-- LOGO (uploadni jako images/logo.png) -->
+        <img src="images/logo.png" alt="Syntheion Dynamics" class="logo">
+        
+        <!-- NADPIS -->
+        <h1>█ SYNTHEION DYNAMICS █</h1>
+        
+        <!-- TYPING EFFECT TEXT (prázdný, script ho vyplní) -->
+        <h2 id="typing-text"></h2>
+        
+        <!-- BACK TO MENU LINK -->
+        <div class="back-link">
+            <a href="index.html">← BACK TO MAIN MENU</a>
+        </div>
+        
+        <!-- FILTER BUTTONS -->
+        <nav>
+            <button onclick="filterGallery('all')">ALL</button>
+            <button onclick="filterGallery('cyberpunk')">CYBERPUNK</button>
+            <button onclick="filterGallery('odyssey')">AC ODYSSEY</button>
+        </nav>
+        
+        <!-- GALLERY -->
         <div class="gallery">
-            <!-- Sem dáš svoje screenshoty -->
-            <img src="images/photomode_22112025_230404.png" alt="Cyberpunk 2077">
-            <img src="images/photomode_27112025_211937.png" alt="Cyberpunk 2077">
-            <img src="images/photomode_08122025_160928.png" alt="Cyberpunk 2077">
-            <img src="images/Assassin’s Creed® Odyssey-2025_10_19-15-07-38.png" alt="AC Odyssey">
-            <img src="images/Assassin’s Creed® Odyssey-2025_10_06-17-07-20.png" alt="AC Odyssey">
-            <!-- ... další obrázky ... -->
+            <img src="images/photomode_22112025_230404.png" alt="Cyberpunk 2077" class="cyberpunk">
+            <img src="images/photomode_27112025_211937.png" alt="Cyberpunk 2077" class="cyberpunk">
+            <img src="images/photomode_08122025_160928.png" alt="Cyberpunk 2077" class="cyberpunk">
+            <img src="images/Assassin's Creed® Odyssey-2025_10_19-15-07-38.png" alt="AC Odyssey" class="odyssey">
+            <img src="images/Assassin's Creed® Odyssey-2025_10_06-17-07-20.png" alt="AC Odyssey" class="odyssey">
         </div>
     </div>
 
-       <script>
-// 1. NAJDI všechny obrázky v galerii
-document.querySelectorAll('.gallery img').forEach(img => {
+    <!-- SCRIPTY NA KONEC -->
     
-    // 2. PRO KAŽDÝ obrázek přidej "onclick" funkci
-    img.onclick = function() {
-        
-        // 3. VYTVOŘ černý overlay (div přes celou obrazovku)
-        let overlay = document.createElement('div');
-        
-        // 4. NASTAV styling overlay (fullscreen, černá, na vrchu všeho)
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            cursor: pointer;
-        `;
-        
-        // 5. VYTVOŘ nový velký obrázek element
-        let bigImage = document.createElement('img');
-        
-        // 6. NASTAV source = stejný obrázek jako thumbnail
-        bigImage.src = this.src;
-        
-        // 7. NASTAV velikost (max 95% obrazovky)
-        bigImage.style.maxWidth = '95%';
-        bigImage.style.maxHeight = '95%';
-        bigImage.style.border = '2px solid #00ff00';
-        
-        // 8. PŘIDEJ velký obrázek DO overlay
-        overlay.appendChild(bigImage);
-        
-        // 9. PŘIDEJ overlay NA stránku
-        document.body.appendChild(overlay);
-        
-        // 10. NASTAV klik na overlay = zavřít
-        overlay.onclick = function() {
-            overlay.remove();
+    <!-- 1. FULLSCREEN CLICK (jenom jeden!) -->
+    <script>
+    document.querySelectorAll('.gallery img').forEach(img => {
+        img.onclick = function() {
+            // Vytvoř overlay
+            let overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999;
+                cursor: pointer;
+            `;
+            
+            // Vytvoř velký obrázek
+            let bigImage = document.createElement('img');
+            bigImage.src = this.src;
+            bigImage.style.maxWidth = '95%';
+            bigImage.style.maxHeight = '95%';
+            bigImage.style.border = '2px solid #00ff00';
+            
+            // Přidej obrázek do overlay
+            overlay.appendChild(bigImage);
+            document.body.appendChild(overlay);
+            
+            // Klik = zavřít
+            overlay.onclick = () => overlay.remove();
         };
-    };
-});
-</script>
-
-<script>
-document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', function() {
-        let fullscreen = document.createElement('div');
-        fullscreen.style.cssText = `
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        `;
-        
-        let bigImg = document.createElement('img');
-        bigImg.src = this.src;
-        bigImg.style.maxWidth = '90%';
-        bigImg.style.maxHeight = '90%';
-        
-        fullscreen.appendChild(bigImg);
-        document.body.appendChild(fullscreen);
-        
-        fullscreen.addEventListener('click', () => {
-            fullscreen.remove();
-        });
     });
-});
-</script>
-
-<script>
-let text = "> LOADING ARCHIVES...";
-let i = 0;
-let element = document.querySelector('h2');
-
-function typeWriter() {
-    if (i < text.length) {
-        element.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
+    </script>
+    
+    <!-- 2. TYPING EFFECT -->
+    <script>
+    let text = "> VIRTUAL PHOTOGRAPHY ARCHIVES";
+    let i = 0;
+    let element = document.getElementById('typing-text');
+    
+    function typeWriter() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
     }
-}
-typeWriter();
-</script>
-
+    
+    typeWriter();
+    </script>
+    
+    <!-- 3. FILTER GALLERY FUNCTION -->
+    <script>
+    function filterGallery(category) {
+        // Najdi všechny obrázky
+        let images = document.querySelectorAll('.gallery img');
+        
+        images.forEach(img => {
+            if (category === 'all') {
+                // Zobraz všechny
+                img.style.display = 'block';
+            } else if (img.classList.contains(category)) {
+                // Zobraz jenom ty s danou class
+                img.style.display = 'block';
+            } else {
+                // Skryj ostatní
+                img.style.display = 'none';
+            }
+        });
+    }
+    </script>
     
 </body>
 </html>
