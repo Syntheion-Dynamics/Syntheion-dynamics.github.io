@@ -9,6 +9,10 @@ Astro-based portfolio for Syntheion Dynamics.
 - Self-hosted fonts: Inter + JetBrains Mono
 - GitHub Actions deploy to GitHub Pages
 
+## Requirements
+
+- **Node.js 22.12+** (Astro 6 refuses older versions; use `nvm`, `fnm`, or the installer from nodejs.org.)
+
 ## Local Development
 
 ```bash
