@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const images = [
+  { src: "/images/photography/mini-cyberpunk-01.jpg", alt: "Cyberpunk virtual photography frame 1", tag: "cyberpunk" },
+  { src: "/images/photography/mini-cyberpunk-02.jpg", alt: "Cyberpunk virtual photography frame 2", tag: "cyberpunk" },
+  { src: "/images/photography/mini-cyberpunk-04.jpg", alt: "Cyberpunk virtual photography frame 4", tag: "cyberpunk" },
+  { src: "/images/photography/mini-cyberpunk-05.jpg", alt: "Cyberpunk virtual photography frame 5", tag: "cyberpunk" },
+  { src: "/images/photography/mini-cyberpunk-06.jpg", alt: "Cyberpunk virtual photography frame 6", tag: "cyberpunk" },
+  { src: "/images/photography/mini-ac-odyssey-01.jpg", alt: "Assassins Creed Odyssey frame 1", tag: "odyssey" },
+  { src: "/images/photography/mini-ac-odyssey-02.jpg", alt: "Assassins Creed Odyssey frame 2", tag: "odyssey" }
+];
+---
+
+<BaseLayout
+  title="Virtual Photography | Syntheion Dynamics"
+  description="Curated virtual photography archive from Cyberpunk and Assassin's Creed Odyssey."
+  mode="archive"
+  sector="Photography"
+  ogImage="/images/photography/mini-cyberpunk-01.jpg"
+>
+  <section class="section container">
+    <SectionHeader sector="Archive" title="Virtual Photography" subtitle="Curated game-world captures." />
+    <div class="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="cyberpunk">Cyberpunk</button>
+      <button data-filter="odyssey">AC Odyssey</button>
+    </div>
+    <div class="gallery">
+      {
+        images.map((image) => (
+          <button class="tile" data-tag={image.tag} data-src={image.src} data-alt={image.alt}>
+            <img src={image.src} alt={image.alt} loading="lazy" />
+          </button>
+        ))
+      }
+    </div>
+  </section>
+
+  <dialog id="lightbox">
+    <img id="lightbox-image" src="" alt="" />
+  </dialog>
+</BaseLayout>
+
+<script>
+  const filterButtons = Array.from(document.querySelectorAll(".filters button"));
+  const tiles = Array.from(document.querySelectorAll(".tile"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const current = button.dataset.filter ?? "all";
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      button.classList.add("active");
+      tiles.forEach((tile) => {
+        tile.style.display = current === "all" || tile.dataset.tag === current ? "block" : "none";
+      });
+    });
+  });
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => {
+      if (!lightbox || !lightboxImage) return;
+      lightboxImage.setAttribute("src", tile.dataset.src || "");
+      lightboxImage.setAttribute("alt", tile.dataset.alt || "");
+      lightbox.showModal();
+    });
+  });
+
+  lightbox?.addEventListener("click", () => lightbox.close());
+</script>
+
+<style>
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .filters button {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.8rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+  }
+
+  .filters button.active,
+  .filters button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tile {
+    border: 1px solid var(--border);
+    padding: 0;
+    background: transparent;
+    cursor: zoom-in;
+  }
+
+  .tile:hover {
+    border-color: var(--accent-dim);
+  }
+
+  dialog {
+    width: min(95vw, 1200px);
+    border: 1px solid var(--border);
+    padding: 0;
+    background: var(--bg);
+  }
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  #lightbox-image {
+    width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  @media (max-width: 900px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

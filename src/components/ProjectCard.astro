@@ -1,0 +1,50 @@
+---
+const { href, title, description, image, tag = "Project" } = Astro.props;
+---
+
+<article class="project-card">
+  <a href={href}>
+    <img src={image} alt={title} loading="lazy" />
+    <div class="copy">
+      <p class="eyebrow">{tag}</p>
+      <h3>{title}</h3>
+      <p class="muted">{description}</p>
+      <span class="enter">-> Enter</span>
+    </div>
+  </a>
+</article>
+
+<style>
+  .project-card {
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .copy {
+    padding: 0.9rem;
+  }
+
+  h3 {
+    margin: 0.25rem 0;
+    font-size: 1.1rem;
+  }
+
+  .enter {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-dim);
+  }
+</style>

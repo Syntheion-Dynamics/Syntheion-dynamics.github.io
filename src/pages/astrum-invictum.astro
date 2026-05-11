@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Astrum Invictum | Syntheion Dynamics"
+  description="Transmedia sci-fi about rebuilding civilization after collapse through Matter, Mind, and Steel."
+  mode="studio"
+  sector="Astrum Invictum"
+  ogImage="/images/mini-astrum-landscape.jpg"
+>
+  <Hero
+    title="Astrum Invictum"
+    subtitle="Unity demo in active development. A post-collapse civilization rebuilt through Matter, Mind, and Steel."
+    image="/images/mini-astrum-landscape.jpg"
+    ctaHref="https://astruminvictum.com"
+    ctaLabel="Open astruminvictum.com"
+  />
+
+  <!-- INTRO -->
+  <section class="section container">
+    <SectionHeader sector="Project" title="Science, governance, and presence" />
+    <div class="intro-grid">
+      <div>
+        <p>
+          Astrum Invictum is a transmedia sci-fi project about rebuilding civilization after collapse. The setting is
+          Vindex Caelum, a ringworld where law, systems engineering, and psionic research evolve together instead of
+          competing for control.
+        </p>
+        <p>
+          After the Great Catastrophe, the maintenance AI Echo activated dormant archives and initiated genetic
+          restoration of ten races. Under Empress Velia Serapha and Lucia's research leadership, the empire stabilizes
+          around three pillars: Matter, Mind, and Steel.
+        </p>
+        <p>
+          In this universe, faith is not about gods. It is disciplined trust in causality, in responsibility, and in
+          the fact that consciousness is part of the universe, not separate from it. Science defines what is possible.
+          Presence defines how power is used.
+        </p>
+        <p><a class="button" href="https://astruminvictum.com" target="_blank" rel="noreferrer">Go to main Astrum site</a></p>
+      </div>
+      <img class="enlargeable" src="/images/mini-astrum-statue-fp.jpg" alt="Astrum Invictum first person statue scene" />
+    </div>
+  </section>
+
+  <!-- VINDEX CAELUM -->
+  <section class="section container">
+    <SectionHeader sector="Setting" title="Vindex Caelum" subtitle="The ringworld at the center of the story." />
+    <img
+      class="enlargeable wide-image"
+      src="/images/mini-astrum-vindex-closeup.jpg"
+      alt="Vindex Caelum ringworld closeup concept art"
+    />
+    <p style="margin-top: 1rem;">
+      Vindex Caelum is an ancient megastructure — a ringworld of unknown origin. Its districts range from classical
+      civic architecture to industrial sectors and frontier zones at the edges. The empire's legal system is
+      decentralized by design, adapted to the scale and diversity of the ring. Three district types, three sets of
+      laws, one supreme tribunal.
+    </p>
+  </section>
+
+  <!-- TRIUMVIRATE -->
+  <section class="section container">
+    <SectionHeader sector="Leadership" title="The Triumvirate" />
+    <div class="grid-3">
+      <div class="panel">
+        <p class="eyebrow">[AI ECHO]</p>
+        <p>
+          Former maintenance AI, now the empire's continuity authority and archival intelligence. Echo initiated
+          civilization's restoration from genetic fragments after 800 years of hibernation. Her current mandate
+          prioritizes collective coherence over individual doubt — by necessity, not preference.
+        </p>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">[EMPRESS VELIA SERAPHA]</p>
+        <p>
+          Raised by Echo personally, Velia Serapha holds the empire together through a combination of political
+          pragmatism and public legitimacy. Her proclamation of the First Light elevated governance into a framework
+          that citizens can believe in, not just obey.
+        </p>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">[LUCIA — HEAD OF RESEARCH]</p>
+        <p>
+          Lucia does not calculate equations — she perceives them. Her intuitive access to Hexaterion field structures
+          makes her the empire's most critical scientific asset and its main defense against dimensional
+          destabilization.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET DOCTRINE -->
+  <section class="section container">
+    <SectionHeader sector="Doctrine" title="Operational duality: force and guidance" />
+    <div class="grid-2">
+      <img class="enlargeable" src="/images/mini-astrum-ships-via-ignis-lyra.jpg" alt="SCE Via Ignis and USS Lyra Accord" />
+      <div class="panel">
+        <p class="eyebrow">[FLEET LOGIC]</p>
+        <p>
+          <strong>SCE Via Ignis</strong> is force projection. Built inside Hexaterion with a hull density approaching
+          that of a neutron star, it is a reality icebreaker — but blind in the dimensional space it operates in.
+        </p>
+        <p>
+          <strong>USS Lyra Accord</strong> carries no weapons. Its sensor arrays perceive dimensional currents that no
+          other instrument can read. It navigates the Sword.
+        </p>
+        <p class="muted">One without the other does not survive Hexaterion. That dependency is also the doctrine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEXATERION TEASER -->
+  <section class="section container">
+    <SectionHeader
+      sector="Metaphysics"
+      title="Hexaterion"
+      subtitle="Six-vector dimensional space where standard physics does not apply."
+    />
+    <div class="panel">
+      <p>
+        Hexaterion is not a place. It is a topological structure where reality operates on six independent axes:
+        Temporal, Metric, Mass, Polarity, Information, and Causal. The speed of light is not a limit here — it is the
+        minimum condition for coherence. Anything slower disintegrates into information noise.
+      </p>
+      <p>
+        Psionic operators navigate this space through trained resonance rather than instrumentation. The risk is not
+        equipment failure. The risk is identity dissolution.
+      </p>
+      <p class="muted">Full mechanics documented on astruminvictum.com</p>
+    </div>
+  </section>
+
+  <!-- CULTURAL ARCHIVE -->
+  <section class="section container">
+    <SectionHeader
+      sector="Cultural Archive"
+      title="Civilian life and identity artifacts"
+      subtitle="The empire is also advertising agencies, sports events, and housing brands."
+    />
+    <div class="grid-2">
+      <img class="enlargeable" src="/images/mini-astrum-poster-domelux.jpg" alt="Domelux housing brand poster from Astrum Invictum" />
+      <img
+        class="enlargeable"
+        src="/images/mini-astrum-poster-tour-de-promenade.jpg"
+        alt="Tour de Promenade cycling event poster from Vindex Caelum"
+      />
+    </div>
+    <blockquote>
+      "We do not expand to dominate. We build so collapse does not repeat."
+    </blockquote>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wide-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--border);
+  }
+
+  blockquote {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--fg-muted);
+    border-left: 2px solid var(--accent);
+    margin: 1.2rem 0 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

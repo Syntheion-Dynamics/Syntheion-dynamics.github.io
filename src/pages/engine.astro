@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Bungac Engine | Syntheion Dynamics"
+  description="Custom C# engine and level editor for immersive sim horror development."
+  mode="engine"
+  sector="Engine"
+  ogImage="/images/mini-engine-editor.jpg"
+>
+  <section class="section container">
+    <SectionHeader sector="Core" title="Bungac Engine + Editor" subtitle="C# custom engine stack in active development." />
+    <div class="grid-2">
+      <img class="enlargeable" src="/images/mini-engine-editor.jpg" alt="Bungac level editor view" />
+      <img class="enlargeable" src="/images/mini-engine-3d-models.jpg" alt="Engine gameplay with imported 3D models" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Pivot Story" title="From FPS experiment to immersive sim horror" />
+    <p>
+      The original goal was to build a custom FPS engine. Once the first atmosphere pass started to work, the project
+      naturally pivoted into immersive sim horror territory. That shift became the identity of the whole toolchain.
+    </p>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Capabilities" title="What it can do right now" />
+    <ul>
+      <li>Custom C# runtime and rendering pipeline</li>
+      <li>Own level editor with chunk workflow and entity placement</li>
+      <li>AI actors for drones and security patterns</li>
+      <li>Interactive world entities such as pickups, doors, triggers, and terminals</li>
+      <li>3D model integration for scene building and atmosphere iteration</li>
+      <li>Combat-space iteration and mission room prototyping</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Gallery" title="Engine snapshots" />
+    <div class="grid-2">
+      <img class="enlargeable" src="/images/mini-engine-enemies.jpg" alt="Engine enemies and combat scenario" />
+      <img class="enlargeable" src="/images/mini-engine-psionics.jpg" alt="Engine psionics scene" />
+    </div>
+    <div class="panel" style="margin-top: 1rem;">
+      <p><strong>Status:</strong> active internal development. Main focus is atmosphere quality and systemic gameplay depth.</p>
+    </div>
+  </section>
+</BaseLayout>

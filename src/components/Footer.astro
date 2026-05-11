@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>v0.1.0 · Build {new Date().toISOString().slice(0, 10)}</p>
+    <p>
+      <a href="https://astruminvictum.com" target="_blank" rel="noreferrer">astruminvictum.com</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0 2rem;
+  }
+
+  p,
+  a {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .footer-inner {
+      flex-direction: column;
+    }
+  }
+</style>

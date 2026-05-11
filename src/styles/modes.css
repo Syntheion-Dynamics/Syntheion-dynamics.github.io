@@ -1,0 +1,21 @@
+body[data-mode="studio"] {
+  --accent: #e8b04b;
+  --accent-dim: rgba(232, 176, 75, 0.45);
+}
+
+body[data-mode="engine"] {
+  --accent: #6fe3d1;
+  --accent-dim: rgba(111, 227, 209, 0.4);
+}
+
+body[data-mode="canvas"] {
+  --bg: #11131a;
+  --bg-elevated: #181b24;
+  --accent: #99b1ff;
+  --accent-dim: rgba(153, 177, 255, 0.4);
+}
+
+body[data-mode="archive"] {
+  --accent: #d4c594;
+  --accent-dim: rgba(212, 197, 148, 0.4);
+}

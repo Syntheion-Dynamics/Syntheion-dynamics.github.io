@@ -1,0 +1,69 @@
+---
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Syntheion Dynamics" sector="Home" mode="studio" ogImage="/images/mini-astrum-landscape.jpg">
+  <Hero
+    title="Syntheion Dynamics"
+    subtitle="Studio of one. Sci-fi worlds, tools, and games built from scratch."
+    image="/images/mini-astrum-landscape.jpg"
+    ctaHref="/astrum-invictum"
+    ctaLabel="Enter Astrum Invictum"
+  />
+
+  <section class="section container">
+    <SectionHeader
+      sector="Projects"
+      title="Current flagship projects"
+      subtitle="The four projects that define the current era."
+    />
+    <div class="grid-2">
+      <ProjectCard
+        href="/astrum-invictum"
+        title="Astrum Invictum"
+        description="Transmedia sci-fi flagship project with worldbuilding, demo development, and 2027 Kickstarter track."
+        image="/images/mini-astrum-statue-fp.jpg"
+        tag="Flagship"
+      />
+      <ProjectCard
+        href="/engine"
+        title="Bungac Engine"
+        description="Custom C# engine and editor that evolved into an immersive sim horror direction."
+        image="/images/mini-engine-editor.jpg"
+        tag="Engine"
+      />
+      <ProjectCard
+        href="/gooblerator"
+        title="Gooblerator"
+        description="Complete guitar effects rack for Windows (VST3 + standalone), born out of necessity."
+        image="/images/mini-gooblerator-full.jpg"
+        tag="Audio Tool"
+      />
+      <ProjectCard
+        href="/planner"
+        title="ADHD Planner"
+        description="Visual planning canvas with image nodes, color coding, and timeline workflow."
+        image="/images/mini-planner-canvas.jpg"
+        tag="Productivity Tool"
+      />
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Now" title="What I am building now" />
+    <div class="panel">
+      <p>
+        I am actively building Astrum Invictum while expanding the custom engine and production tools around it.
+        Website updates focus on real progress snapshots rather than polished marketing.
+      </p>
+      <p class="muted">Secondary sectors: virtual photography archive and selected worldbuilding artifacts.</p>
+    </div>
+    <p style="margin-top: 1rem;">
+      <a class="button" href="/about">About the builder</a>
+      <a class="button" style="margin-left: 0.6rem;" href="/photography">Open photography archive</a>
+    </p>
+  </section>
+</BaseLayout>

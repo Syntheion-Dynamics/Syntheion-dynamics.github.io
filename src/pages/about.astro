@@ -1,0 +1,152 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const hasPhoto = true;
+---
+
+<BaseLayout
+  title="About | Syntheion Dynamics"
+  description="Daniel — neurodivergent maker, sci-fi worldbuilder, and indie dev working toward a 2027 sabbatical."
+  mode="archive"
+  sector="About"
+  ogImage="/images/mini-astrum-landscape.jpg"
+>
+  <section class="section container">
+    <SectionHeader sector="Profile" title="Daniel" subtitle="Maker. Worldbuilder. Game director in progress." />
+
+    <div class={hasPhoto ? "bio-grid" : ""}>
+      <div class="bio-text">
+        <p>
+          I am 29, neurodivergent (ADHD and autism), and I live independently in a small house near Jeseník nad Odrou.
+          I work a day job as a maintenance coordinator. That funds everything else.
+        </p>
+        <p>
+          I studied electronic computer systems, but I do not think of myself as a technician. My actual operating mode
+          is closer to creative director — I define the vision and the architecture, AI helps me implement. I build
+          things that did not exist before and that I personally needed to exist.
+        </p>
+        <p>
+          The plan is a sabbatical in May 2027. Finish the Astrum Invictum playable demo, launch a Kickstarter, and
+          exit wage work into full independent development. That is the timeline I am working against.
+        </p>
+        <p>
+          I use AI as a genuine creative partner and cognitive scaffolding, not as a shortcut. That distinction matters
+          to me.
+        </p>
+      </div>
+
+      {hasPhoto && (
+        <div class="photo-slot">
+          <img src="/images/mini-about-daniel.jpg" alt="Daniel" class="profile-photo enlargeable" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Projects" title="What I am building" />
+    <div class="grid-2">
+      <div class="panel">
+        <p class="eyebrow">[ACTIVE]</p>
+        <ul>
+          <li><strong>Astrum Invictum</strong> — transmedia sci-fi, Unity HDRP demo, 10+ months of development</li>
+          <li><strong>Bungač Engine</strong> — custom C# engine that became an immersive sim horror project</li>
+          <li><strong>Gooblerator</strong> — VST3 guitar amp sim, release-ready</li>
+          <li><strong>ADHD Planner</strong> — node canvas I built because nothing else fit my brain</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">[BACKGROUND TRACKS]</p>
+        <ul>
+          <li>Organic plant growing with a DIY low-watt system (ROOTFRAME + LOT technique)</li>
+          <li>Hiking around Jeseník nad Odrou</li>
+          <li>Private hardware tinkering</li>
+        </ul>
+        <p class="muted" style="margin-top: 0.8rem;">
+          Building output since 2024: 2 VST plugins, 1 planning tool, 1 game engine, 1 transmedia project.
+          All solo, most of it in evenings and weekends.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="References" title="What shaped the aesthetic" />
+    <div class="grid-2">
+      <div class="panel">
+        <p class="eyebrow">[SCI-FI WITH SOUL]</p>
+        <ul>
+          <li>Star Trek DS9 — ethics under pressure, institutional weight</li>
+          <li>Red Dwarf — loneliness and absurdity at the edge of known space</li>
+          <li>Outer Wilds — presence, curiosity, and the physics of grief</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <p class="eyebrow">[GAMES THAT LEFT SOMETHING BEHIND]</p>
+        <ul>
+          <li>Deus Ex: Human Revolution</li>
+          <li>System Shock (remake)</li>
+          <li>Colony Ship</li>
+          <li>Mass Effect</li>
+          <li>Cyberpunk 2077</li>
+          <li>The Witcher 3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Interests" title="What I think about when I am not building" />
+    <div class="panel">
+      <p>
+        Relativity, black holes, and the hard edges of astrophysics. Ontology and the question of what it means for
+        anything to exist at all. Why some games feel like they hand you something real and others just consume time.
+        Whether consciousness is substrate-independent. Why DS9 holds up better than most modern prestige television.
+      </p>
+      <p class="muted">
+        I treat these not as casual interests but as the actual inputs to everything I create.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Roadmap" title="2027 exit strategy" />
+    <div class="panel">
+      <p>
+        May 2027: sabbatical begins. The objective is a playable Astrum Invictum demo ready for a Kickstarter campaign
+        with a $10k goal — enough to fund 18 months of full-time independent development. After the car loan clears
+        in May 2027, monthly expenses drop to around 8–9k CZK. The math works, if the demo is good enough.
+      </p>
+      <p class="muted">That is the bet. Everything else is preparation for it.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Contact" title="Links" />
+    <p>
+      <a class="button" href="https://astruminvictum.com" target="_blank" rel="noreferrer">astruminvictum.com</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .profile-photo {
+    width: 100%;
+    border: 1px solid var(--border);
+    filter: grayscale(20%);
+  }
+
+  @media (max-width: 900px) {
+    .bio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

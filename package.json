@@ -1,0 +1,28 @@
+{
+  "name": "syntheion-dynamics.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio site for sci-fi projects, tools, and game development.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syntheion-Dynamics/Syntheion-dynamics.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Syntheion-Dynamics/Syntheion-dynamics.github.io/issues"
+  },
+  "homepage": "https://github.com/Syntheion-Dynamics/Syntheion-dynamics.github.io#readme",
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "astro": "^6.1.9"
+  }
+}

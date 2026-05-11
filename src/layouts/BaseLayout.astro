@@ -1,0 +1,99 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+import "../styles/modes.css";
+
+const {
+  title = "Syntheion Dynamics",
+  description = "Studio of one. Sci-fi worlds, tools, and games built from scratch.",
+  mode = "studio",
+  sector = "Overview",
+  ogImage = "/images/mini-astrum-landscape.jpg"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0E0E10" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+  </head>
+  <body data-mode={mode}>
+    <Nav currentPath={Astro.url.pathname} />
+    <main>
+      <div class="container sector-bar">
+        <p class="eyebrow">/ &gt; {Astro.url.pathname === "/" ? "home" : Astro.url.pathname.slice(1)} · [SECTOR: {sector}]</p>
+      </div>
+      <slot />
+    </main>
+    <dialog id="global-lightbox">
+      <img id="global-lightbox-image" src="" alt="" />
+    </dialog>
+    <Footer />
+    <script>
+      const lightbox = document.getElementById("global-lightbox");
+      const lightboxImage = document.getElementById("global-lightbox-image");
+      const enlargeables = Array.from(document.querySelectorAll("img.enlargeable"));
+
+      enlargeables.forEach((img) => {
+        img.addEventListener("click", () => {
+          if (!lightbox || !lightboxImage) return;
+          lightboxImage.setAttribute("src", img.getAttribute("src") ?? "");
+          lightboxImage.setAttribute("alt", img.getAttribute("alt") ?? "");
+          lightbox.showModal();
+        });
+      });
+
+      lightbox?.addEventListener("click", () => lightbox.close());
+    </script>
+  </body>
+</html>
+
+<style>
+  .sector-bar {
+    padding-top: 0.65rem;
+  }
+
+  .sector-bar p {
+    margin: 0;
+  }
+
+  #global-lightbox {
+    width: min(95vw, 1280px);
+    border: 1px solid var(--border);
+    padding: 0;
+    background: var(--bg);
+  }
+
+  #global-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+  }
+
+  #global-lightbox-image {
+    width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  :global(img.enlargeable) {
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+  }
+
+  :global(img.enlargeable:hover) {
+    opacity: 0.92;
+  }
+</style>

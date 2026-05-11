@@ -1,0 +1,94 @@
+---
+const { currentPath = "/" } = Astro.props;
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/gooblerator", label: "Gooblerator" },
+  { href: "/engine", label: "Engine" },
+  { href: "/planner", label: "Planner" },
+  { href: "/astrum-invictum", label: "Astrum Invictum" },
+  { href: "/photography", label: "Photography" },
+  { href: "/about", label: "About" }
+];
+---
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">SYNTHEION_DYNAMICS</a>
+    <nav>
+      <ul>
+        {
+          links.map((link) => (
+            <li>
+              <a class={currentPath === link.href ? "active" : ""} href={link.href}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    background: color-mix(in srgb, var(--bg) 84%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    min-height: 62px;
+  }
+
+  .brand {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    padding: 0.3rem 0.5rem;
+    border: 1px solid transparent;
+  }
+
+  nav a.active,
+  nav a:hover {
+    color: var(--fg);
+    border-color: var(--accent-dim);
+  }
+
+  @media (max-width: 1024px) {
+    .nav-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.55rem 0;
+    }
+
+    ul {
+      flex-wrap: wrap;
+    }
+  }
+</style>

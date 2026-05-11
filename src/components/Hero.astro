@@ -1,0 +1,48 @@
+---
+const { title, subtitle, image, ctaHref, ctaLabel } = Astro.props;
+---
+
+<section class="hero">
+  {image && <img src={image} alt={title} class="hero-image" />}
+  <div class="hero-overlay container">
+    <p class="eyebrow">// INITIALIZE</p>
+    <h1>{title}</h1>
+    {subtitle && <p class="muted">{subtitle}</p>}
+    {ctaHref && ctaLabel && (
+      <p>
+        <a class="button" href={ctaHref}>
+          {ctaLabel}
+        </a>
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 48vh;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    display: grid;
+    place-items: end start;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.52) contrast(1.05);
+  }
+
+  .hero-overlay {
+    position: relative;
+    padding: 5.5rem 0 3rem;
+  }
+
+  .hero-overlay p {
+    max-width: 60ch;
+  }
+</style>

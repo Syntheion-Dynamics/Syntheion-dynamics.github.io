@@ -1,0 +1,9 @@
+---
+const { sector = "Overview", title, subtitle } = Astro.props;
+---
+
+<div class="section-header">
+  <p class="eyebrow">[SECTOR: {sector}]</p>
+  {title && <h2>{title}</h2>}
+  {subtitle && <p class="muted">{subtitle}</p>}
+</div>

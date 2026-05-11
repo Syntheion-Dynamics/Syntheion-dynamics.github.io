@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="ADHD Planner | Syntheion Dynamics"
+  description="Visual planning tool with node canvas, image embeds, and timeline workflow."
+  mode="canvas"
+  sector="Planner"
+  ogImage="/images/mini-planner-canvas.jpg"
+>
+  <Hero
+    title="ADHD Planner"
+    subtitle="Custom node-based planning canvas made to replace friction-heavy workflows."
+    image="/images/mini-planner-canvas.jpg"
+  />
+
+  <section class="section container">
+    <SectionHeader sector="Why" title="Why I built it" />
+    <p>
+      I tried to adapt to Obsidian for planning, but it did not fit the way I think. That friction pushed me to build
+      my own visual planner. The prototype worked, then quickly became a real tool I use.
+    </p>
+  </section>
+
+  <section class="section container grid-2">
+    <div>
+      <SectionHeader sector="Features" title="Current feature set" />
+      <ul>
+        <li>Node canvas with effectively unlimited instances</li>
+        <li>Image embedding and mixed visual/text planning</li>
+        <li>Color-coded structure for fast context switching</li>
+        <li>Timeline lane for sequencing and scheduling</li>
+        <li>Scene and tooltip driven workflow details</li>
+      </ul>
+      <p class="muted">Status: personal production tool, release scope to be defined.</p>
+    </div>
+    <img class="enlargeable" src="/images/mini-planner-overview.jpg" alt="ADHD planner overview workspace" />
+  </section>
+</BaseLayout>

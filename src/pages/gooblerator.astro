@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout
+  title="Gooblerator | Syntheion Dynamics"
+  description="Complete guitar effects rack for Windows (VST3 / Standalone)."
+  mode="engine"
+  sector="Gooblerator"
+  ogImage="/images/mini-gooblerator-full.jpg"
+>
+  <Hero
+    title="Gooblerator"
+    subtitle="Complete guitar effects rack for Windows (VST3 / Standalone)."
+    image="/images/mini-gooblerator-full.jpg"
+  />
+
+  <section class="section container">
+    <SectionHeader sector="Why" title="Why I built this" />
+    <p>
+      I missed TH3. After Cakewalk broke the old version with free TH3, I was devastated. I started building my own
+      plugin as a passion project, realized how hard it was, but I could not stop.
+    </p>
+  </section>
+
+  <section class="section container">
+    <SectionHeader sector="Spec Sheet" title="Core features" />
+    <ul>
+      <li>8 amplifier models (Clean to Modern Metal) and dedicated preamp section</li>
+      <li>10 cabinet models plus custom IR loader</li>
+      <li>Dual-microphone simulation</li>
+      <li>Stompboxes: Tube Screamer/Fuzz and multiple distortion modes (Rat, HM-2, others)</li>
+      <li>Modulation: Phaser, Chorus, Flanger, Tremolo</li>
+      <li>Delay and reverb families: digital/tape, room/hall/spring/cathedral</li>
+      <li>Extras: Bitcrusher, parametric EQ, looper, tuner</li>
+      <li>Drag-and-drop signal chain reordering</li>
+    </ul>
+  </section>
+
+  <section class="section container grid-2">
+    <div class="panel">
+      <p class="eyebrow">[STATUS]</p>
+      <p>Standalone and VST3 functionality is in active development and polish.</p>
+      <a class="button" href="#">Download coming soon</a>
+    </div>
+    <div class="panel">
+      <p class="eyebrow">[CHANGELOG]</p>
+      <p><strong>v0.1</strong> - initial public project page and feature spec published.</p>
+      <img class="enlargeable" src="/images/mini-gooblerator-default.jpg" alt="Gooblerator default view" />
+    </div>
+  </section>
+</BaseLayout>
